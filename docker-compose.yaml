@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  application:
+    build:
+      context: ${PROJECT_PATH}/.
+      dockerfile: ${PROJECT_PATH}/Dockerfile
+
+    ports:
+      - 80:80
