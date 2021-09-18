@@ -7,16 +7,12 @@ export const PlayerListPage : React.FC = () => {
     const [players , setPlayerList] = useState<IPlayer[]>();
 
     useEffect(() => {
-        const savedPlayers = JSON.parse(localStorage.getItem('players') || '[]') as IPlayer[]
-
-        if (savedPlayers.length === 0){
             getPlayers().then(players => {
+                console.log(players)
                 localStorage.setItem('players', JSON.stringify(players))
                 setPlayerList(players)
             })
-        } else {
-            setPlayerList(savedPlayers)
-        }
+        
     }, []);
 
     return(

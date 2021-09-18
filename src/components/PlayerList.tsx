@@ -1,7 +1,7 @@
 import React, {useEffect, useState } from 'react';
 import { Player} from './Player'
 import {IPlayer} from '../interfaces/IPlayer'
-import {getPlayersByValue} from '../network/AxiosExecutor'
+import {getPlayers} from '../network/AxiosExecutor'
 
 export interface PlayerListProps{
     players : IPlayer[] | undefined
@@ -14,8 +14,8 @@ export const PlayerList : React.FC<PlayerListProps> = props =>{
     type InputEvent = React.ChangeEvent<HTMLInputElement>;
 
    const update = (e: InputEvent): void => {
-    setSearch(e.target.value)
-    getPlayersByValue(e.target.value).then(players =>
+    //setSearch(e.target.value)
+    getPlayers().then(players =>
             setPlayerList(players)
             )
    }
